@@ -24,7 +24,7 @@ enum MHZ19_PWM_DATA
 	CALC_5000_PPM
 };
 
-enum MHZ19_POTOCOL
+enum MHZ19_PROTOCOL
 {
 	UART,
 	PWM
@@ -44,7 +44,7 @@ class MHZ19
 	void calibrateZero();
 	void calibrateSpan(int ppm);
 
-	int getPPM(MHZ19_POTOCOL protocol);
+	int getPPM(MHZ19_PROTOCOL protocol);
 	int getTemperature();
 	int getStatus();
 
