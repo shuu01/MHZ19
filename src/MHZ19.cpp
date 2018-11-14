@@ -65,15 +65,15 @@ void MHZ19::calibrateSpan(int ppm)
 	writeCommand(cmd);
 }
 
-int MHZ19::getPPM(MHZ19_POTOCOL protocol)
+int MHZ19::getPPM(MHZ19_PROTOCOL protocol)
 {
 	int data;
 	switch (protocol)
 	{
-	case MHZ19_POTOCOL::UART:
+	case MHZ19_PROTOCOL::UART:
 		data = getSerialData(MHZ19_UART_DATA::PPM);
 		break;
-	case MHZ19_POTOCOL::PWM:
+	case MHZ19_PROTOCOL::PWM:
 		data = getPwmData();
 		break;
 	}
