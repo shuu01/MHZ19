@@ -2,12 +2,12 @@
     MH-Z19 CO2 sensor  SAMPLE
   ----------------------------------------------------------*/
 
-#include <MHZ19_uart.h>
+#include <MHZ19.h>
 
 const int rx_pin = 4;	//Serial rx pin no
 const int tx_pin = 5;	//Serial tx pin no
 
-MHZ19_uart mhz19;
+MHZ19 mhz19;
 
 /*----------------------------------------------------------
     MH-Z19 CO2 sensor  setup
