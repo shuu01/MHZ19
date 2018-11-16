@@ -1,4 +1,4 @@
-# MHZ19_uart 
+# MHZ19 
 Arduino IDE library for operating the MH-Z19 CO2 sensor in ESP-WROOM-02/32(ESP8266/ESP32) or Arduino  
 version 0.3
 
@@ -10,11 +10,19 @@ License MIT
 * Include this library to your Arduino IDE.
 * Wiring MH-Z19 sensor to your Arduino or ESP-WROOM-02/32(ESP8266/ESP32).
 
-    MH-Z19 Vout to Arduino Vout(5V)  
-    MH-Z19 GND  to Arduino GND  
-    MH-Z19 Tx   to Arduino Digital Pin (Serial Rx pin)  
-    MH-Z19 Rx   to Arduino Digital Pin (Serial Tx pin)  
-    other MH-Z19 pins are not used.  
+    MH-Z19 Vout to Arduino Vout(5V)
+    MH-Z19 GND  to Arduino GND
+    MH-Z19 Tx   to Arduino Digital Pin (Serial Rx pin)
+    MH-Z19 Rx   to Arduino Digital Pin (Serial Tx pin)
+    other MH-Z19 pins are not used.
+    
+    pin 1 (brown)  // CO2 Vo
+    pin 2 (white)  // CO2 Nothings
+    pin 3 (black)  // CO2 GND
+    pin 4 (red)    // CO2 Vin
+    pin 5 (blue)   // CO2 Rx (UART)
+    pin 6 (green)  // CO2 Tx (UART)
+    pin 7 (yellow) // CO2 Nothings
 
 * Read sample source code. It's very simple !
 
@@ -23,14 +31,14 @@ License MIT
 * MH-Z19 is supporting PWM , but this library is supporting only serial connection. 
 * this library is testing only ESP-WROOM-02/32(ESP8266/ESP32) boards. if you can't execute this library on your arduino (or clone) boards, please contact me.
 
-# MHZ19_uart library function
+# MHZ19 library function
 
-## Constractor
+## Constructor
 
-* MHZ19_uart  
-  normal constractor. if you use this constractor, you must execute begin() function after this constractor execute.
+* MHZ19 
+  normal constructor. if you use this constructor, you must execute begin() function after this constructor execute.
 
-* MHZ19_uart(int rx, int tx)  
+* MHZ19(int rx, int tx)  
   setting rx and tx pin, and initialize Software Serial.
 
 ## public function
@@ -41,7 +49,7 @@ License MIT
 * void setAutoCalibration(bool autocalib)  
   MH-Z19 has automatic calibration procedure. the MH-Z19 executing automatic calibration, its do zero point(stable gas environment (400ppm)) judgement.
   The automatic calibration cycle is every 24 hours after powered on.  
-  If you use this sensor in door, you execute `setAutoCalibration(false)`.
+  If you use this sensor indoor, you should execute `setAutoCalibration(false)`.
 
 * void calibrateZero()  
   execute zero point calibration. 
@@ -69,6 +77,8 @@ License MIT
 
 * MH-Z19B Data sheet  
   http://www.winsen-sensor.com/d/files/infrared-gas-sensor/mh-z19b-co2-ver1_0.pdf
+  v 1.3
+  http://style.winsensor.com/pro_pdf/MH-Z19B.pdf
 
 # history
 * ver. 0.1: closed version.
