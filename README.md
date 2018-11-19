@@ -77,12 +77,12 @@ pin 7 (yellow) // CO2 Nothings
 * MH-Z19 Data sheet
   http://www.winsen-sensor.com/d/files/PDF/Infrared%20Gas%20Sensor/NDIR%20CO2%20SENSOR/MH-Z19%20CO2%20Ver1.0.pdf
 
-* MH-Z19B Data sheet
+* MH-Z19B Data sheet v 1.0
   http://www.winsen-sensor.com/d/files/infrared-gas-sensor/mh-z19b-co2-ver1_0.pdf
-  v 1.3
+* MH-Z19B Data sheet v 1.3
   http://style.winsensor.com/pro_pdf/MH-Z19B.pdf
 
 # history
 * ver. 0.1: closed version.
 * ver. 0.2: first release version.
-* ver. 0.3: support ESP-WROOM-32(ESP32), Change library name. (MHZ19_Serial -> MHZ19_uart)
+* ver. 0.3: support ESP-WROOM-32(ESP32)
