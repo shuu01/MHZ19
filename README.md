@@ -65,13 +65,13 @@ pin 7 (yellow) // CO2 Nothings
   if you want to execute span point calibration, the MH-Z19 sensor must work in between 1000 to 2000ppm level co2 for over 20 minutes and you execute this function.
 
 * int getPPM()
-  get co2 ppm.
+  get co2 ppm
 
 * int getTemperature()
-  get temperature
+  get sensor temperature
 
 * int getStatus()
-  get ths MH-Z19 sensor status value
+  get MH-Z19 sensor status value (always shows zero, useless)
 
 # link
 * MH-Z19 Data sheet
