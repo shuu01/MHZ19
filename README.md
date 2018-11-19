@@ -76,7 +76,6 @@ pin 7 (yellow) // CO2 Nothings
 # link
 * MH-Z19 Data sheet
   http://www.winsen-sensor.com/d/files/PDF/Infrared%20Gas%20Sensor/NDIR%20CO2%20SENSOR/MH-Z19%20CO2%20Ver1.0.pdf
-
 * MH-Z19B Data sheet v 1.0
   http://www.winsen-sensor.com/d/files/infrared-gas-sensor/mh-z19b-co2-ver1_0.pdf
 * MH-Z19B Data sheet v 1.3
