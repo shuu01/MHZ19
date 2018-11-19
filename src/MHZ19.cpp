@@ -126,7 +126,6 @@ void MHZ19::writeCommand(uint8_t cmd[], uint8_t *response)
 }
 
 //private
-
 void MHZ19::setSerialData()
 {
     uint8_t buf[MHZ19::RESPONSE_CNT];
