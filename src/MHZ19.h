@@ -69,7 +69,7 @@ class MHZ19
     // Pwm Pin
     int _pwm_pin;
   
-    MHZ19_PROTOCOL _protocol = UART;
+    uint8_t _protocol = MHZ19_PROTOCOL UART;
 
     // Pwm Data Flag
     uint8_t PWM_LIMIT = MHZ19_LIMIT::PPM_2000;
