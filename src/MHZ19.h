@@ -37,12 +37,9 @@ class MHZ19
     void calibrateZero();
     void calibrateSpan(int ppm);
 
-    void setData(MHZ19_PROTOCOL protocol);
     void setPwmLimit(MHZ19_LIMIT type);
 
-    int getPPM();
-    int getTemperature();
-    int getStatus();
+    int getPPM(MHZ19_PROTOCOL protocol);
 
   protected:
     void writeCommand(uint8_t com[]);
@@ -51,8 +48,8 @@ class MHZ19
   private:
     uint8_t mhz19_checksum(uint8_t com[]);
 
-    void setSerialData()
-    void setPwmData();
+    int getSerialPPM()
+    int getPwmPPM();
 
     static const int REQUEST_CNT = 8;
     static const int RESPONSE_CNT = 9;
@@ -70,11 +67,6 @@ class MHZ19
 
     // Pwm Pin
     int _pwm_pin;
-
-    // Data
-    int _ppm = -1;
-    int _temperature = -1;
-    int _status = -1;
 
     // Pwm Data Flag
     uint8_t PWM_LIMIT = MHZ19_LIMIT::PPM_2000;
