@@ -13,6 +13,7 @@ MH-Z19 Vin to Arduino Vout(5V)
 MH-Z19 GND  to Arduino GND
 MH-Z19 Tx   to Arduino Digital Pin (Serial Rx pin)
 MH-Z19 Rx   to Arduino Digital Pin (Serial Tx pin)
+MH-Z19 PWM  to Arduino Digital Pin (PWM pin)
 other MH-Z19 pins are not used.
 
 pin 1 (brown)  // CO2 Vo
