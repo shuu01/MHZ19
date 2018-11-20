@@ -33,13 +33,14 @@ class MHZ19
 
     void begin(int rx, int tx);
     void begin(int pwm);
+    
     void setAutoCalibration(boolean autocalib);
     void calibrateZero();
     void calibrateSpan(int ppm);
 
     void setPwmLimit(MHZ19_LIMIT type);
 
-    int getPPM(MHZ19_PROTOCOL protocol);
+    int getPPM();
 
   protected:
     void writeCommand(uint8_t com[]);
@@ -67,6 +68,8 @@ class MHZ19
 
     // Pwm Pin
     int _pwm_pin;
+  
+    MHZ19_PROTOCOL _protocol = UART;
 
     // Pwm Data Flag
     uint8_t PWM_LIMIT = MHZ19_LIMIT::PPM_2000;
