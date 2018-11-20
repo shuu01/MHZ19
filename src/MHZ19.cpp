@@ -34,25 +34,38 @@ void MHZ19::begin(int rx, int tx)
 {
     _rx_pin = rx;
     _tx_pin = tx;
+    _protocol = MHZ19_PROTOCOL UART;
 }
 
 void MHZ19::begin(int pwm)
 {
     _pwm_pin = pwm;
+    _protocol = MHZ19_PROTOCOL PWM;
+}
+
+void MHZ19::setPwmLimit(MHZ19_LIMIT type)
+{
+    PWM_LIMIT = type;
 }
 
 void MHZ19::setAutoCalibration(boolean autocalib)
 {
+    if (_protocol != UART)
+        return;
     writeCommand(autocalib ? autocalib_on : autocalib_off);
 }
 
 void MHZ19::calibrateZero()
 {
+    if (_protocol != UART)
+        return;
     writeCommand(zerocalib);
 }
 
 void MHZ19::calibrateSpan(int ppm)
 {
+    if (_protocol != UART)
+        return;
     if (ppm < 1000)
         return;
 
@@ -66,9 +79,9 @@ void MHZ19::calibrateSpan(int ppm)
     writeCommand(cmd);
 }
 
-int MHZ19::getPPM(MHZ19_PROTOCOL protocol)
+int MHZ19::getPPM()
 {
-    switch (protocol)
+    switch (_protocol)
     {
     case MHZ19_PROTOCOL::UART:
         return getSerialPPM();
@@ -154,11 +167,6 @@ int MHZ19::getPwmPPM()
     } while (th == 0);
 
     return ppm;
-}
-
-void MHZ19::setPwmLimit(MHZ19_LIMIT type)
-{
-    PWM_LIMIT = type;
 }
 
 uint8_t MHZ19::mhz19_checksum(uint8_t com[])
