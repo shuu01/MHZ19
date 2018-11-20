@@ -67,7 +67,10 @@ pin 7 (yellow) // CO2 Nothings
   get co2 ppm.
   
 * void setPwmLimit(MHZ19_LIMIT limit)  
-  set upper measurement limit for co2 data getting by pwm. 
+  set upper measurement limit for co2 data getting by pwm.  
+  available limits are:  
+    MHZ19_LIMIT PPM_2000  
+    MHZ19_LIMIT PPM_5000
 
 # link
 * MH-Z19 Data sheet
