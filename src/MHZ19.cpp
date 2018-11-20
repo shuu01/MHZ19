@@ -66,32 +66,18 @@ void MHZ19::calibrateSpan(int ppm)
     writeCommand(cmd);
 }
 
-void MHZ19::setData(MHZ19_PROTOCOL protocol)
+int MHZ19::getPPM(MHZ19_PROTOCOL protocol)
 {
     switch (protocol)
     {
     case MHZ19_PROTOCOL::UART:
-        setSerialData();
+        return getSerialPPM();
         break;
     case MHZ19_PROTOCOL::PWM:
-        setPwmData();
+        return getPwmPPM();
         break;
     }
-}
-
-int MHZ19::getPPM()
-{
-    return _ppm;
-}
-
-int MHZ19::getTemperature()
-{
-    return _temperature;
-}
-
-int MHZ19::getStatus()
-{
-    return _status;
+    return 0;
 }
 
 //protected
@@ -125,10 +111,12 @@ void MHZ19::writeCommand(uint8_t cmd[], uint8_t *response)
     }
 }
 
-//private
-void MHZ19::setSerialData()
+// private
+int MHZ19::getSerialPPM()
 {
+    int ppm, temperature, status = 0;
     uint8_t buf[MHZ19::RESPONSE_CNT];
+
     for (int i = 0; i < MHZ19::RESPONSE_CNT; i++)
     {
         buf[i] = 0x0;
@@ -139,15 +127,16 @@ void MHZ19::setSerialData()
     // parse
     if (buf[0] == 0xff && buf[1] == 0x86 && mhz19_checksum(buf) == buf[MHZ19::RESPONSE_CNT - 1])
     {
-        _ppm = buf[2] * 256 + buf[3];
-        _temperature = buf[4] - 40;
-        _status = buf[5];
+        ppm = buf[2] * 256 + buf[3];
+        temperature = buf[4] - 40;
+        status = buf[5];
     }
+    return ppm;
 }
 
-void MHZ19::setPwmData()
+int MHZ19::getPwmPPM()
 {
-    unsigned long th, tl = 0;
+    unsigned long th, tl, ppm = 0;
 
     do
     {
@@ -156,13 +145,15 @@ void MHZ19::setPwmData()
         switch (PWM_LIMIT)
         {
         case MHZ19_LIMIT::PPM_2000:
-            _ppm = 2000 * (th - 2) / (th + tl - 4);
+            ppm = 2000 * (th - 2) / (th + tl - 4);
             break;
         case MHZ19_LIMIT::PPM_5000:
-            _ppm = 5000 * (th - 2) / (th + tl - 4);
+            ppm = 5000 * (th - 2) / (th + tl - 4);
             break;
         }
     } while (th == 0);
+
+    return ppm;
 }
 
 void MHZ19::setPwmLimit(MHZ19_LIMIT type)
