@@ -49,7 +49,7 @@ class MHZ19
   private:
     uint8_t mhz19_checksum(uint8_t com[]);
 
-    int getSerialPPM()
+    int getSerialPPM();
     int getPwmPPM();
 
     static const int REQUEST_CNT = 8;
