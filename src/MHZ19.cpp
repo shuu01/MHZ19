@@ -34,13 +34,13 @@ void MHZ19::begin(int rx, int tx)
 {
     _rx_pin = rx;
     _tx_pin = tx;
-    _protocol = MHZ19_PROTOCOL UART;
+    _protocol = UART;
 }
 
 void MHZ19::begin(int pwm)
 {
     _pwm_pin = pwm;
-    _protocol = MHZ19_PROTOCOL PWM;
+    _protocol = PWM;
 }
 
 void MHZ19::setPwmLimit(MHZ19_LIMIT type)
@@ -85,10 +85,8 @@ int MHZ19::getPPM()
     {
     case MHZ19_PROTOCOL::UART:
         return getSerialPPM();
-        break;
     case MHZ19_PROTOCOL::PWM:
         return getPwmPPM();
-        break;
     }
     return 0;
 }
