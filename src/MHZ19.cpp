@@ -1,5 +1,5 @@
 /*
-  MHZ19.cpp - MH-Z19 CO2 sensor library for ESP8266 or Arduino
+  MHZ19.cpp - MH-Z19 CO2 sensor library for Arduino
   version 1.0
 
   License MIT
