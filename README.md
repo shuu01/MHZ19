@@ -44,29 +44,29 @@ pin 7 (yellow) // CO2 Nothings
 
 ## public function
 
-* void begin(int rx, int tx)
+* void begin(int rx, int tx)  
   setting rx and tx pin, and initialize Software Serial.
 
-* void begin(int pwm)
+* void begin(int pwm)  
   setting pwm pin
 
-* void setAutoCalibration(bool autocalib)
-  The automatic base calibration will set the lowest measured internal RAW value in the last 24h as new reference point at 400 ppm.
-  This means the base line will make a big jump when being used in a not well ventilated room for more than 24h. And when opening a door or window after such a recalibration, the measured value will hardly change and stay at 400ppm for hours.
+* void setAutoCalibration(bool autocalib)  
+  The automatic base calibration will set the lowest measured internal RAW value in the last 24h as new reference point at 400 ppm.  
+  This means the base line will make a big jump when being used in a not well ventilated room for more than 24h. And when opening a door or window after such a recalibration, the measured value will hardly change and stay at 400ppm for hours.  
   If you use this sensor indoor, you should execute `setAutoCalibration(false)`.
 
-* void calibrateZero()
-  execute zero point calibration.
+* void calibrateZero()  
+  execute zero point calibration.  
   if you want to execute zero point calibration, the MH-Z19 sensor must work in stable gas environment (400ppm) for over 20 minutes and you execute this function.
 
-* void calibrateSpan(int ppm)
-  execute span point calibration.
+* void calibrateSpan(int ppm)  
+  execute span point calibration.  
   if you want to execute span point calibration, the MH-Z19 sensor must work in between 1000 to 2000ppm level co2 for over 20 minutes and you execute this function.
 
-* int getPPM()
+* int getPPM()  
   get co2 ppm.
   
-* void setPwmLimit(MHZ19_LIMIT limit)
+* void setPwmLimit(MHZ19_LIMIT limit)  
   set upper measurement limit for co2 sensor. 
 
 # link
