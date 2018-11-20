@@ -1,5 +1,5 @@
 /*
-  MHZ19.h - MH-Z19 CO2 sensor library for ESP-WROOM-02/32(ESP8266/ESP32) or Arduino
+  MHZ19.h - MH-Z19 CO2 sensor library for Arduino
   version 1.0
 
   License MIT
