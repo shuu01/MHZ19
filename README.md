@@ -1,6 +1,5 @@
 # MHZ19
-Arduino IDE library for operating the MH-Z19 CO2 sensor in ESP-WROOM-02/32(ESP8266/ESP32) or Arduino
-version 0.3
+Arduino IDE library for operating the MH-Z19 CO2 sensor
 
 # Credits and license
 License MIT
@@ -8,7 +7,7 @@ License MIT
 # How to use
 
 * Include this library to your Arduino IDE.
-* Wiring MH-Z19 sensor to your Arduino or ESP-WROOM-02/32(ESP8266/ESP32).
+* Wiring MH-Z19 sensor to your Arduino.
 ```
 MH-Z19 Vout to Arduino Vout(5V)
 MH-Z19 GND  to Arduino GND
@@ -28,7 +27,7 @@ pin 7 (yellow) // CO2 Nothings
 
 # caution
 
-* MH-Z19 is supporting PWM.
+* MH-Z19 is supporting PWM and UART.
 
 # MHZ19 library function
 
@@ -65,13 +64,10 @@ pin 7 (yellow) // CO2 Nothings
   if you want to execute span point calibration, the MH-Z19 sensor must work in between 1000 to 2000ppm level co2 for over 20 minutes and you execute this function.
 
 * int getPPM()
-  get co2 ppm
-
-* int getTemperature()
-  get sensor temperature
-
-* int getStatus()
-  get MH-Z19 sensor status value (always shows zero, useless)
+  get co2 ppm.
+  
+* void setPwmLimit(MHZ19_LIMIT limit)
+  set upper measurement limit for co2 sensor. 
 
 # link
 * MH-Z19 Data sheet
@@ -80,8 +76,3 @@ pin 7 (yellow) // CO2 Nothings
   http://www.winsen-sensor.com/d/files/infrared-gas-sensor/mh-z19b-co2-ver1_0.pdf
 * MH-Z19B Data sheet v 1.3
   http://style.winsensor.com/pro_pdf/MH-Z19B.pdf
-
-# history
-* ver. 0.1: closed version.
-* ver. 0.2: first release version.
-* ver. 0.3: support ESP-WROOM-32(ESP32)
