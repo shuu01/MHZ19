@@ -5,6 +5,3 @@ setAutoCalibration	KEYWORD2
 calibrateZero	KEYWORD2
 calibrateSpan	KEYWORD2
 getPPM	KEYWORD2
-getTemperature	KEYWORD2
-getStatus	KEYWORD2
-isWarming	KEYWORD2
