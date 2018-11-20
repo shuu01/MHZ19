@@ -51,15 +51,18 @@ pin 7 (yellow) // CO2 Nothings
   setting pwm pin
 
 * void setAutoCalibration(bool autocalib)  
+  UART only  
   The automatic base calibration will set the lowest measured internal RAW value in the last 24h as new reference point at 400 ppm.  
   This means the base line will make a big jump when being used in a not well ventilated room for more than 24h. And when opening a door or window after such a recalibration, the measured value will hardly change and stay at 400ppm for hours.  
   If you use this sensor indoor, you should execute `setAutoCalibration(false)`.
 
 * void calibrateZero()  
+  UART only  
   execute zero point calibration.  
   if you want to execute zero point calibration, the MH-Z19 sensor must work in stable gas environment (400ppm) for over 20 minutes and you execute this function.
 
 * void calibrateSpan(int ppm)  
+  UART only  
   execute span point calibration.  
   if you want to execute span point calibration, the MH-Z19 sensor must work in between 1000 to 2000ppm level co2 for over 20 minutes and you execute this function.
 
