@@ -139,8 +139,8 @@ int MHZ19::getSerialPPM()
     if (buf[0] == 0xff && buf[1] == 0x86 && mhz19_checksum(buf) == buf[MHZ19::RESPONSE_CNT - 1])
     {
         ppm = buf[2] * 256 + buf[3];
-        temperature = buf[4] - 40;
-        status = buf[5];
+        temperature = buf[4] - 40; // sensor temperature
+        status = buf[5]; // always zero
     }
     return ppm;
 }
