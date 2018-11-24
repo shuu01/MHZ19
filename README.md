@@ -32,7 +32,7 @@ pin 7 (yellow) // CO2 Nothings
 
 # MHZ19 library function
 
-## Constructor
+### constructor
 
 * MHZ19
   normal constructor. You must execute begin() function after execution this constructor.
@@ -43,7 +43,7 @@ pin 7 (yellow) // CO2 Nothings
 * MHZ19(int pwm)
   setting pwm pin
 
-## public function
+### public function
 
 * void begin(int rx, int tx)  
   setting rx and tx pin, and initialize Software Serial.
