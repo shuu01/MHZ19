@@ -1,10 +1,10 @@
 # MHZ19
 Arduino IDE library for operating the MH-Z19 CO2 sensor
 
-# Credits and license
+## Credits and license
 License MIT
 
-# How to use
+## How to use
 
 * Include this library to your Arduino IDE.
 * Wiring MH-Z19 sensor to your Arduino.
@@ -26,11 +26,11 @@ pin 7 (yellow) // CO2 Nothings
 ```
 * Read sample source code. It's very simple !
 
-# caution
+## caution
 
 * MH-Z19 is supporting PWM and UART.
 
-# MHZ19 library function
+## MHZ19 library function
 
 ### constructor
 
@@ -76,7 +76,7 @@ pin 7 (yellow) // CO2 Nothings
     MHZ19_LIMIT PPM_2000  
     MHZ19_LIMIT PPM_5000
 
-# links
+## links
 * MH-Z19 Data sheet
   http://www.winsen-sensor.com/d/files/PDF/Infrared%20Gas%20Sensor/NDIR%20CO2%20SENSOR/MH-Z19%20CO2%20Ver1.0.pdf
 * MH-Z19B Data sheet v 1.0
